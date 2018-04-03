@@ -1,0 +1,42 @@
+<div class="users index page-content">
+ <div class="container">
+  <div class = "card">
+  
+
+<div class="card-body content-card">
+<h2 class = "card-title">Users</h2>
+  <%= link_to("Sign up!", new_user_path, :class => 'action new') %>
+
+  <table class="table table-striped" summary="User list">
+    <tr class="header">
+      <th>display name</th>
+      <th>email</th>
+      <th>View</th>
+    </tr>
+
+    <% @users.each do |user| %>
+      
+    <tr>
+      <td>
+      <% if user.is_super_admin %>
+      <i class="fa fa-star" data-toggle="tooltip" title="Administrator"></i> 
+      <% end %> <%= user.display_name %></td>
+      <td><%= user.email %></td>
+
+      <td class="actions">
+        <%= link_to("Profile", user_path(user), :class => 'action show') %>
+        <% if session[:user_id] != nil %>
+          <% if User.find(session[:user_id]).is_super_admin || user.id == session[:user_id]%>
+            <%= link_to("Edit", edit_user_path(user), :class => 'action edit') %>
+            <%= link_to("Delete", delete_user_path(user), :class => 'action delete') %>
+          <% end %>
+        <% end %>  
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
+  </div>
+  </div>
+</div>
+

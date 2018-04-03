@@ -1,0 +1,25 @@
+
+
+<div class="users index page-content">
+ <div class="container">
+  <div class = "card">
+  
+
+<div class="card-body content-card">
+
+  <h2 class = "card-title">Delete this account</h2>
+<%= link_to("<< Back to Users", users_path, :class => 'back-link') %>
+  <%= form_for(@user, :method => 'delete') do |f| %>
+<blockquote class="blockquote">
+    <p>Are you sure you want to permanently delete this account?</p>
+</blockquote>
+    <p class="reference-name"><b>Display name: </b><%= f.object.display_name %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Account") %>
+    </div>
+</div>
+</div>
+</div>
+  <% end %>
+</div>

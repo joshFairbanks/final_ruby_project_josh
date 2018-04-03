@@ -1,0 +1,30 @@
+<% @page_title = "User Login" %>
+
+<div class="users index page-content">
+ <div class="container">
+  <div class = "card">
+  
+
+<div class="card-body content-card">
+<img class="card-img-top" src="http://www.queencharlotte.ca/sites/queencharlotte.civicwebcms.com/files/media/banner-sunset.jpg" alt="Card image cap">
+<br><br><h2 class = "card-title">Log in</h2>
+  <%= form_tag(access_attempt_login_path, :method => :post) do %>
+  <table class = "table table-striped">
+    <tr>
+      <td><%= label_tag(:display_name) %></td>
+      <td><%= text_field_tag(:display_name, params[:display_name]) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:password) %></td>
+      <td><%= password_field_tag(:password) %></td>
+    </tr>
+    <tr>
+      <td><%= submit_tag("Log In") %></td>
+    <td>&nbsp;</td>
+    </tr>
+  </table>
+  <% end %>
+</div>
+</div>
+</div>
+</div>

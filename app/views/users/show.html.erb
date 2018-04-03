@@ -1,0 +1,59 @@
+
+<% @isMyProfile = false %>
+<% @page_title = "User Profile" %>
+
+<div class="users index page-content">
+ <div class="container">
+  <div class = "card">
+  
+
+<div class="card-body content-card">
+<h2 class = "card-title">User Profile</h2>
+  <div class="identity"> 
+  <% if @user.id == session[:user_id]  %>
+    <% @isMyProfile = true %>
+    Logged in as: <%= User.find(session[:user_id]).display_name %>
+  <% else %>
+    Viewing <%= User.find(@user.id).display_name %>'s profile
+  <% end %>
+  </div><br>
+ 
+<div class="row">
+    <div class="col">
+    <div class = "user-avatar">
+    <%= image_tag @user.avatar.url(:medium) %>
+    </div>
+  <% if @isMyProfile %>
+   <h3>Pick or update your avatar!</h3>
+   <br>
+    <%= form_for @user, url: user_path, html: { multipart: true } do |form| %>
+          <%= form.file_field :avatar %>
+          <%= form.submit %>
+          <% end %>
+  <% end %>
+</div>
+<div class="col">
+  <table class = 'table table-striped' summary="User form fields">
+      <tr>
+        <th><h4>Account Info</h4></th>
+      </tr>
+      <tr>
+        <td><b>Account created: </b><%= @user.created_at %></td>
+      </tr>  
+      <tr>
+        <td><b>Profile updated: </b><%= @user.updated_at %></td>
+      </tr>  
+      <tr>
+        <td><b>Groups subscribed to: </b>0</td>
+      </tr>
+    </table>  
+</div>
+
+</div>
+<% if @isMyProfile %>
+  <br><%= link_to("Logout", access_logout_path) %>
+<% end %>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,22 @@
+<% @page_title = "User Profile" %>
+
+<div class="users index page-content">
+ <div class="container">
+  <div class = "card">
+  
+
+<div class="card-body content-card">
+<h2 class = "card-title">User Profile</h2>
+  <div class="identity">Logged in as: <%= @display_name %></div>
+  <ul>
+    <li></li>
+    <li><%= link_to("Logout", access_logout_path) %></li>
+  </ul>
+  <%= form_for @user, url: users_path, html: { multipart: true } do |form| %>
+  <%= form.file_field :avatar %>
+  <%= form.submit %>
+<% end %>
+</div>
+</div>
+</div>
+</div>

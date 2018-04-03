@@ -1,0 +1,54 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ */
+
+
+@import 'bootstrap';
+
+/*
+header.masthead{
+    background: url(https://blackrockdigital.github.io/startbootstrap-new-age/img/bg-pattern.png),linear-gradient(to left,#7b4397,#222) !important;
+    background-image: url(https://blackrockdigital.github.io/startbootstrap-new-age/img/bg-pattern.png), linear-gradient(to left, rgb(123, 67, 151), #222) !important;
+}
+.navbar-brand{
+    color: ghostwhite !important;
+    font-weight: 400 !important;
+}
+.navbar-shrink .navbar-brand{
+    color:#7b4397 !important;
+}
+.btn:hover{
+    background-color: #7b4397 !important;
+    border-color:white !important;
+}*/
+
+
+
+.page-content{
+    margin-top: 90px !important;
+    margin-bottom:40px !important;
+    
+}
+
+
+body{
+    background: url(https://blackrockdigital.github.io/startbootstrap-new-age/img/bg-pattern.png),linear-gradient(to left,#7b4397,#dc2430) !important;
+    background-image: url(https://blackrockdigital.github.io/startbootstrap-new-age/img/bg-pattern.png), linear-gradient(to left, rgb(123, 67, 151), rgb(220, 36, 48)) !important;
+ 
+}
+.user-avatar img{
+    width:100%;
+}
