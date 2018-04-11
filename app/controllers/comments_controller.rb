@@ -10,4 +10,11 @@ class CommentsController < ApplicationController
 
   def delete
   end
+
+  def create
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(params[:comment].permit(:author, :description))
+    redirect_to post_path(@post)
+  end  
+  
 end

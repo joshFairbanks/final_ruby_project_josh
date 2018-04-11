@@ -1,0 +1,51 @@
+
+
+<div class="posts index page-content">
+ <div class="container">
+  <div class = "card">
+  
+
+<div class="card-body content-card">
+<img class="card-img-top" src="http://www.queencharlotte.ca/sites/queencharlotte.civicwebcms.com/files/media/banner-sunset.jpg" alt="Card image cap">
+  <br><br><h2 class = "card-title">Create a Post</h2>
+<%= link_to("<< Back to Posts", posts_path, :class => 'back-link') %>
+  <%= form_for(@post, :url => posts_path, :method => 'post') do |f| %>
+
+    <table class="table table-striped" summary="User form fields">
+      <tr>
+        <th>Title</th>
+        <td><%= f.text_field(:title) %></td>
+      </tr>
+      <tr>
+      <% if session[:user_id] != nil %>
+        <th>Group name</th>
+        
+        
+        <td>
+        <select>
+        <% User.find(session[:user_id]).group.each do |group| %>
+        <option value= "<%= group.name  %>"><%= group.name  %></option>
+          
+        <% end %>
+        </select>
+        </td>
+      </tr>
+      <% end %>
+
+
+
+    </table>
+
+  
+      <%= f.file_field :avatar %>
+
+
+    <br>
+    <div class="form-buttons">
+      <%= f.submit("Create Post") %>
+    </div>
+</div>
+</div>
+</div>
+  <% end %>
+</div>

@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
+    resources :comments
     member do
       get :delete
     end
@@ -65,6 +66,8 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+
 
   # get ":controller(/:action(/:id))"
   # get 'users/index'

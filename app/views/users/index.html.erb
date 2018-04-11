@@ -20,7 +20,7 @@
       <td>
       <% if user.is_super_admin %>
       <i class="fa fa-star" data-toggle="tooltip" title="Administrator"></i> 
-      <% end %> <%= user.display_name %></td>
+      <% end %> <%= user.display_name %><div class = "list-thumb"><%= image_tag user.avatar.url(:thumb) %></div></td>
       <td><%= user.email %></td>
 
       <td class="actions">

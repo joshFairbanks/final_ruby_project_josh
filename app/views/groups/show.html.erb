@@ -1,2 +1,55 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+
+
+<% @page_title = "Groups" %>
+
+<div class="users index page-content">
+ <div class="container">
+  <div class = "card">
+  
+
+<div class="card-body content-card">
+<h2 class = "card-title">Group details</h2>
+  <div class="identity"> 
+    Viewing <%= Group.find(@group.id).name %> <strong>[GROUP]</strong>
+  </div><br>
+ 
+<div class="row">
+    <div class="col">
+    <div class = "user-avatar">
+    <%= image_tag @group.avatar.url(:medium) %>
+    </div>
+  <% if @group.user_id == session[:user_id] %>
+   <h3>Pick or update your group's image!</h3>
+   <br>
+    <%= form_for @group, url: group_path, html: { multipart: true } do |form| %>
+          <%= form.file_field :avatar %>
+          <%= form.submit %>
+          <% end %>
+  <% end %>
+</div>
+<div class="col">
+  <table class = 'table table-striped' summary="User form fields">
+      <tr>
+        <th><h4>Group Info</h4></th>
+      </tr>
+      <tr>
+        <td><b>Group created: </b><%= @group.created_at %></td>
+      </tr>  
+      <tr>
+        <td><b>Group updated: </b><%= @group.updated_at %></td>
+      </tr>  
+      <tr>
+        <td><b>User count: </b><%= @group.users.length %></td>
+      </tr>
+    </table>  
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

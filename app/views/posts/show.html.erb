@@ -1,2 +1,62 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+
+
+<% @page_title = "posts" %>
+
+<div class="users index page-content">
+ <div class="container">
+  <div class = "card">
+  
+
+<div class="card-body content-card">
+<h2 class = "card-title">Post details</h2>
+  <div class="identity"> 
+    Viewing <%= Post.find(@post.id).title %> <strong>[POST]</strong>
+  </div><br>
+ 
+<div class="row">
+    <div class="col">
+    <div class = "user-avatar">
+    <%= image_tag @post.avatar.url(:medium) %>
+    </div>
+
+   <h3>Pick or update your post's image!</h3>
+   <br>
+    <%= form_for @post, url: post_path, html: { multipart: true } do |form| %>
+          <%= form.file_field :avatar %>
+          <%= form.submit %>
+          <% end %>
+
+</div>
+<div class="col">
+  <table class = 'table table-striped' summary="User form fields">
+      <tr>
+        <th><h4>Post Info</h4></th>
+      </tr>
+      <tr>
+        <td><b>Post created: </b><%= @post.created_at %></td>
+      </tr>  
+      <tr>
+        <td><b>Post updated: </b><%= @post.updated_at %></td>
+      </tr>  
+      <tr>
+        <td><b>User: </b><%= @post.user_id %></td>
+      </tr>
+    </table>  
+</div>
+<div class="col-12">
+<br><br><br>
+<h2>Comments (<%= @post.comments.count %>)</h2>
+<br>
+
+<%= render "comments/form" %><br>
+<ul>
+ 
+<%= render @post.comments %>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
